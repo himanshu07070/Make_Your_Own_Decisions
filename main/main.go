@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Choose_Your_Own_Adventure/adventure"
+	"Choose_Your_Own_Adventure/cyoa"
 	"flag"
 	"fmt"
 	"log"
@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	filename := flag.String("file", "choose_your.json", "this JSON file with choose_your_own story")
-	port := flag.Int("port", 8080, "the port to start Choose_Your_Own_Story Web Application")
+	filename := flag.String("file", "gopher.json", "this JSON file with CYOA story")
+	port := flag.Int("port", 8080, "the port to start CYOA Web Application")
 	flag.Parse()
 	f, err := os.Open(*filename)
 	if err != nil {
