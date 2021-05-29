@@ -1,4 +1,4 @@
-# Choose_Your_Own_Adventure
+# Make_Your_Own_Decisions
 
 [Choose Your Own Adventure](https://en.wikipedia.org/wiki/Choose_Your_Own_Adventure) is a series of books intended for children where as you read you would occasionally be given options about how you want to proceed. For instance, you might read about a boy walking in a cave when he stumbles across a dark passage or a ladder leading to an upper level and the reader will be presented with two options like:
 
