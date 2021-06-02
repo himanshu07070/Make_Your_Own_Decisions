@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Choose_Your_Own_Adventure/cyoa"
+	"Make_Your_Own_Decision/myod"
 	"flag"
 	"fmt"
 	"log"
@@ -10,19 +10,19 @@ import (
 )
 
 func main() {
-	filename := flag.String("file", "gopher.json", "this JSON file with CYOA story")
-	port := flag.Int("port", 8080, "the port to start CYOA Web Application")
+	filename := flag.String("file", "data.json", "this JSON file with MYOD story")
+	port := flag.Int("port", 8080, "the port to start MYOD Web Application")
 	flag.Parse()
 	f, err := os.Open(*filename)
 	if err != nil {
 		panic(err)
 	}
-	story, err := cyoa.ParseJSON(f)
+	story, err := myod.ParseJSON(f)
 	if err != nil {
 		panic(err)
 	}
 
-	h := cyoa.NewHandler(story, nil)
+	h := myod.NewHandler(story, nil)
 	fmt.Printf("Started server at Port %d\n", *port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), h))
 
