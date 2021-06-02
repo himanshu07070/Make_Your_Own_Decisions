@@ -1,4 +1,4 @@
-package cyoa
+package myod
 
 import (
 	"encoding/json"
@@ -37,7 +37,7 @@ var defaultHandlerTmpl = `
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>Choose Your Own Adventure</title>
+    <title>Make Your Own Decision</title>
 </head>
 <body>
     <h1>{{.Title}}</h1>
