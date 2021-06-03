@@ -22,7 +22,7 @@ func main() {
 		panic(err)
 	}
 
-	h := myod.NewHandler(story, nil)
+	h := myod.NewHandler(story)
 	fmt.Printf("Started server at Port %d\n", *port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), h))
 
