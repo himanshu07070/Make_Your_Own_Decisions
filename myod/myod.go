@@ -24,7 +24,6 @@ type Option struct {
 
 type handler struct {
 	s Story
-	t *template.Template
 }
 
 func init() {
@@ -60,11 +59,8 @@ func ParseJSON(f io.Reader) (Story, error) {
 	return story, nil
 }
 
-func NewHandler(s Story, tmpl *template.Template) http.Handler {
-	if tmpl == nil {
-		tmpl = tpl
-	}
-	return handler{s, tpl}
+func NewHandler(s Story) http.Handler {
+	return handler{s}
 }
 
 func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -75,7 +71,7 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	path = path[1:]
 	if chapter, ok := h.s[path]; ok {
-		err := h.t.Execute(w, chapter)
+		err := tpl.Execute(w, chapter)
 		if err != nil {
 			log.Printf("%v", err)
 			http.Error(w, "Something went Wrong...", http.StatusInternalServerError)
